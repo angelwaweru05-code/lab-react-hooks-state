@@ -10,6 +10,37 @@ Your company is developing a **new grocery shopping app** to improve the shoppin
 
 Your task is to implement these features using **React Hooks (`useState`)** while ensuring the app is functional and visually consistent.
 
+## Project Description
+
+A React product dashboard that demonstrates state management with `useState`. It includes a dark mode toggle, category filtering, an add-to-cart flow, and a running cart total. The UI is built with Vite, CSS Modules, and Material UI, and is covered by a Jest + React Testing Library suite.
+
+## Setup Instructions
+
+1. Clone the repository and enter the project directory:
+   ```sh
+   git clone <your-forked-repository-url>
+   cd react-hooks-state-lab
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Start the development server:
+   ```sh
+   npm run dev
+   ```
+4. Open the local URL printed by Vite in your browser.
+
+## Running the Tests
+
+Run the Jest suite with:
+
+```sh
+npm test
+```
+
+The tests cover the dark mode toggle, category filtering, the empty-product state, and adding items to the cart.
+
 ---
 
 ## **Challenge**

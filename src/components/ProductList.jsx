@@ -8,6 +8,7 @@ export const sampleProducts = [
 ]
 
 const ProductList = ({ category = 'all', addToCart }) => {
+  // "all" shows every product; any other category narrows the list.
   const filteredProducts =
     category === 'all'
       ? sampleProducts
@@ -17,6 +18,7 @@ const ProductList = ({ category = 'all', addToCart }) => {
     <div>
       <h2>Available Products</h2>
 
+      {/* Guard against an empty result before mapping over products. */}
       {filteredProducts.length === 0 ? (
         <p>No products available</p>
       ) : (
