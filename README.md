@@ -105,3 +105,40 @@ Your task is to implement these features using **React Hooks (`useState`)** whil
 - [CSS Modules Documentation](https://github.com/css-modules/css-modules)
 - [Jest Testing Framework](https://jestjs.io/)
 - [React Testing Library](https://testing-library.com)
+
+---
+
+## **Implementation Summary**
+
+### Project Goals
+- Let shoppers switch between light and dark themes.
+- Let shoppers add any product to a cart and see the running total.
+- Let shoppers narrow the product list to a single category.
+
+### Implemented Features
+- **Dark mode** — `App` owns the `darkMode` boolean; `DarkModeToggle` flips it through an `onClick` handler and swaps its label between "Toggle Dark Mode" and "Toggle Light Mode". Theme colors are applied with `src/styles/DarkMode.module.css`.
+- **Category filter** — `App` owns the `category` string, bound to the dropdown through `value`/`onChange`. `ProductList` filters `sampleProducts` and shows "No products available" when nothing matches.
+- **Add to cart** — `App` owns the `cartItems` array. `ProductCard` calls the `addToCart` callback, and `Cart` lists each item as `ITEM.NAME is in your cart.`
+- **Cart total (bonus)** — `Cart` displays `Total items: <count>`.
+
+### Component Responsibilities
+| File | Responsibility |
+| --- | --- |
+| `src/App.jsx` | Owns `darkMode`, `cartItems`, and `category` state; wires callbacks to children. |
+| `src/components/DarkModeToggle.jsx` | Renders the theme toggle button. |
+| `src/components/ProductList.jsx` | Holds sample data and filters products by category. |
+| `src/components/ProductCard.jsx` | Displays a product and its "Add to Cart" button. |
+| `src/components/Cart.jsx` | Lists cart items and the item total. |
+
+### Running and Testing
+```sh
+npm install
+npm run dev      # start the Vite dev server
+npm test         # run the Jest suite
+npm run build    # production build
+```
+
+### Maintenance Notes
+- State stays in `App`; child components remain presentational and receive props.
+- To add categories, extend `sampleProducts` and add a matching `<option>` in `App`.
+- Keep `jest` and `jest-environment-jsdom` on the same major version when updating test tooling.
